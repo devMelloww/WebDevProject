@@ -24,7 +24,9 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var import_express = __toESM(require("express"));
 var import_profiles = __toESM(require("./routes/profiles"));
 var import_mongoose = __toESM(require("mongoose"));
+var import_auth = __toESM(require("./routes/auth"));
 const app = (0, import_express.default)();
+const path = require("path");
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 import_mongoose.default.connect("mongodb://localhost:27017/profiles").then(() => {
@@ -32,9 +34,17 @@ import_mongoose.default.connect("mongodb://localhost:27017/profiles").then(() =>
 }).catch((err) => {
   console.error("Failed to connect to MongoDB", err);
 });
+const nodeModules = path.resolve(
+  __dirname,
+  "../../../node_modules"
+);
+console.log("Serving NPM packages from", nodeModules);
+app.use("/node_modules", import_express.default.static(nodeModules));
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
 app.use("/api/profiles", import_profiles.default);
+app.use("/auth", import_auth.default);
+app.use("/api/profiles", import_auth.authenticateUser, import_profiles.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

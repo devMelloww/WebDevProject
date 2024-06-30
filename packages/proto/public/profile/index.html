@@ -6,31 +6,40 @@
   <link rel="stylesheet" href="./styles/page.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Riot&family=Shadows+Into+Light&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Riot&family=Shadows+Into+Light&display=swap" rel="stylesheet" />
+  <script type="importmap">
+    {
+      "imports": {
+        "@calpoly/mustang": "/node_modules/@calpoly/mustang/dist/mustang.mjs"
+      }
+    }
+  </script>
+  <script type="module">
+    import { define, Auth } from "@calpoly/mustang";
+    define({ "mu-auth": Auth.Provider });
+  </script>
 </head>
 <body>
-  <json-object src="/api/profiles/blaze">
-    <a href="#" onclick="relayEvent(event, 'json-object:open')">
-      Blaze Pasquale
-    </a>
-  </json-object>
+  <mu-auth provides="blazing:auth" redirect="../login.html">
+    <json-object src="/api/profiles/blaze">
+      <a href="#" onclick="relayEvent(event, 'json-object:open')">
+        Blaze Pasquale
+      </a>
+    </json-object>
   
-  <restful-form src="/api/profiles/blaze">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" />
+    <restful-form src="/api/profiles/blaze">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" />
     
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" />
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" />
     
-    <button type="submit">Submit</button>
-  </restful-form>
+      <button type="submit">Submit</button>
+    </restful-form>
+    <!-- Sign out link -->
+    <a href="#" onclick="relayEvent(event, 'auth:message', ['auth/signout'])">Sign out</a>
+  </mu-auth>
 
   <script type="module" src="/js/json-loader.js"></script>
   <script type="module" src="/js/form-loader.js"></script>
