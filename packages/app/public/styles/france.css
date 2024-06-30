@@ -1,0 +1,56 @@
+
+  
+  .center-text {
+    text-align: center;
+  }
+  
+  .section-content {
+    position: relative;
+  }
+  
+  .w3-third {
+    background-color: #f0ffff;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .w3-third img {
+    max-width: 50%; /* Adjust the max-width as needed */
+    height: auto; /* Maintain aspect ratio */
+    padding: 20px; /* Adjust padding as needed */
+  }
+  
+  .w3-container {
+    margin: -5px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Set height to 100% of the viewport height */
+  }
+  
+  .w3-container p {
+    margin: 0; /* Remove the default margin */
+    text-align: center;
+    font-size: 30px;
+    color: #e5aa70;
+  }
+  
+  .info-container p {
+    color: #343434;
+    flex: 1;
+    padding: 20px;
+    font-size: 20px;
+    margin: 20px;
+    font-family: "Caveat", cursive;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items (including the button) to the center horizontally */
+    text-align: center; /* Align text inside the div to the center */
+  }
+  

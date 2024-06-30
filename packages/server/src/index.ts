@@ -3,6 +3,7 @@ import profiles from "./routes/profiles";
 import mongoose from "mongoose";
 import { connect } from "./services/mongo";
 import auth, { authenticateUser } from "./routes/auth";
+import fs from "node:fs/promises";
 
 const app = express();
 const path = require('path');
@@ -27,6 +28,13 @@ app.use(express.json());
 app.use("/api/profiles", profiles);
 app.use("/auth", auth);
 app.use("/api/profiles", authenticateUser, profiles);
+
+app.use("/app", async (req: Request, res: Response) => {
+  const indexHtml = path.resolve(staticDir, "index.html");
+  const html = await fs.readFile(indexHtml, { encoding: "utf8" });
+  res.send(html);
+});
+
 
 app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");

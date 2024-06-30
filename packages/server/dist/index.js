@@ -21,10 +21,31 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
 var import_express = __toESM(require("express"));
 var import_profiles = __toESM(require("./routes/profiles"));
 var import_mongoose = __toESM(require("mongoose"));
 var import_auth = __toESM(require("./routes/auth"));
+var import_promises = __toESM(require("node:fs/promises"));
 const app = (0, import_express.default)();
 const path = require("path");
 const port = process.env.PORT || 3e3;
@@ -45,6 +66,11 @@ app.use(import_express.default.json());
 app.use("/api/profiles", import_profiles.default);
 app.use("/auth", import_auth.default);
 app.use("/api/profiles", import_auth.authenticateUser, import_profiles.default);
+app.use("/app", (req, res) => __async(exports, null, function* () {
+  const indexHtml = path.resolve(staticDir, "index.html");
+  const html = yield import_promises.default.readFile(indexHtml, { encoding: "utf8" });
+  res.send(html);
+}));
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });

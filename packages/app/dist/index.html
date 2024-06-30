@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles/page.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Riot&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet"
+  />
+  
+
+  
+
+  <title>Home</title>
+  <script type="module" crossorigin src="/assets/index-bd0f3e00.js"></script>
+
+  <body>
+    <mu-auth provides="blazing:auth" redirect="./login.html">
+      <label
+  onchange="relayEvent(event, 'dark-mode', 
+    {checked: event.target.checked})">
+  <input type="checkbox" autocomplete="off" />
+  Dark mode
+</label>
+
+<profile-view src="/api/profiles/blaze"></profile-view>
+      <blazing-header></blazing-header>
+      <section>
+        <div class="section-content">
+          <img class="mySlides" src="/images/img4.png" style="width: 100%" />
+          <div class="intro-msg">
+            <h1>
+              Exploring Cultures Through Different Dishes <br />
+              From Around the World!
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section class="w3-container w3-content w3-center img-b">
+        <p class="w3-justify">
+          Delving into diverse cultures and travel experiences through cuisine
+          provides a rich opportunity to discover and appreciate different
+          customs, traditions, and ways of life.
+        </p>
+      </section>
+
+      <section class="w3-row-padding w3-center w3-light-grey">
+        <article class="w3-third flex-container pt">
+          <img src="./images/profiteroles.png" alt="Random Name" />
+          <div>
+            <h1>Profiteroles</h1>
+            <h2>(France)</h2>
+            <div class="info-container">
+              <p>
+                Beautiful, sweet and small enough to eat more than is probably
+                advisable, profiteroles come in any assortment of flavors.
+                Filled with vanilla custard, cream or even ice cream, these
+                little cream puffs can be topped with chocolate sauce, fruit or
+                just served plain.
+              </p>
+              <p>
+                The airy, delicate pastry is pâte à choux, or choux pastry. One
+                of the backbones of French patisserie, choux is the dough used
+                for éclairs, beignets, the Paris-Brest and more. It’s made by
+                cooking flour with water, milk and butter before mixing in the
+                eggs. The resulting dough is wet and pipable and puffs up when
+                baked.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="w3-row-padding w3-center w3-light-grey">
+        <article class="w3-third flex-container2">
+          <img src="./images/img5.png" alt="Random Name" />
+          <div>
+            <h1>Arancini</h1>
+            <h2>(Italy)</h2>
+            <div class="info-container">
+              <p>
+                Arancini are fried rice balls. There are two main types: Roman
+                and Sicilian. Both are filled with ragu or tomato sauce,
+                mozzarella cheese, and Arborio rice, used to make risotto. The
+                difference is that the Sicillian arancino recipes typically add
+                beef and peas. Those are common fillings, but you can also find
+                arancini filled with other vegetables.
+              </p>
+              <p>
+                Arancini are coated in breadcrumbs and deep fried giving them a
+                golden and crispy outside, which is how they got their name
+                “Arancini”, which means little orange. They are served with a
+                side of marinara sauce and are one of the best Italian treats
+                found in all kinds of establishments around Italy including
+                market stalls, pubs and bars, and fine dining restaurants. A
+                locals favorite!
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="w3-row-padding w3-center w3-light-grey">
+        <article class="w3-third flex-container fl3">
+          <img src="./images/img6.png" alt="Random Name" />
+          <div>
+            <h1>Maultaschen</h1>
+            <h2>(Germany)</h2>
+            <div class="info-container">
+              <p>
+                Maultaschen from Swabia, southwestern Germany, are a lot like
+                ravioli but bigger. They are typically palm-sized, square
+                pockets of dough with fillings that run the gamut from savory to
+                sweet and meaty to vegetarian.
+              </p>
+              <p>
+                A traditional combination is minced meat, bread crumbs, onions
+                and spinach – all seasoned with salt, pepper and parsley.
+                They’re often simmered and served with broth instead of sauce
+                for a tender, creamier treat, but are sometimes pan-fried and
+                buttered for extra richness.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="fl">
+        <h2>Explore more countries</h2>
+        <div class="flags">
+          <a href="./pages/countries.html"><div class="flag flag-us"></div></a>
+          <div class="flag flag-uk"></div>
+          <div class="flag flag-fr"></div>
+          <!-- Add more flag divs with appropriate classes -->
+        </div>
+        <button><a href="./pages/countries.html">Explore More</a></button>
+      </section>
+    </mu-auth>
+  </body>
+  <!-- Footer -->
+  <footer class="w3-padding-64 w3-center w3-black w3-xlarge">
+    <p>&copy; Copyright 2024</p>
+  </footer>
+</html>
